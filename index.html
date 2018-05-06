@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>登陆</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>  
-        这是一段测试
+        <div id="main">
+            <div class="line"><span class="line-title">用户名：</span><input type="text" id="user"></div>
+            <div class="line"><span class="line-title">密码：</span><input type="password" id="password"></div>
+            <div><button onclick="submit()">提交</button></div>
+        </div>
 </body>
+<script src="jq.js"></script>
+<script>
+    $(function () {
+        
+    });
+    function submit() {
+        var user = $('#user').val();
+        var password = $('#password').val();
+        var data = {
+            user:user,
+            password:password
+        };
+        $.ajax({url:"demo_test.txt",data:data,success:function(res){
+            console.log(res)
+        }});
+    }
+</script>
 </html>
